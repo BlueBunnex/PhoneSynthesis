@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import com.badlogic.audio.analysis.FFT;
 import com.badlogic.audio.io.WaveDecoder;
 
-public class FFTAnalysis {
+public class AudioAnalyizer {
 	
 	public static void getBands(String inPath, int numBands, float[] freq, float[] amp) {
 		

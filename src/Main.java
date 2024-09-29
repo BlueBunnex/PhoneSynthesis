@@ -3,26 +3,32 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		final int NUM_BANDS = 200;
+		final int NUM_BANDS = 400;
 		
-		float[] freq = new float[NUM_BANDS];
-		float[] amp  = new float[NUM_BANDS];
+		float[] freq1 = new float[NUM_BANDS];
+		float[] amp1  = new float[NUM_BANDS];
 		
-		FFTAnalysis.getBands("in_a.wav", NUM_BANDS, freq, amp);
-		AudioSynthesizer.synthesize("out_a.wav", NUM_BANDS, freq, amp);
+		float[] freq2 = new float[NUM_BANDS];
+		float[] amp2  = new float[NUM_BANDS];
 		
-		FFTAnalysis.getBands("in_e.wav", NUM_BANDS, freq, amp);
-		AudioSynthesizer.synthesize("out_e.wav", NUM_BANDS, freq, amp);
+		AudioAnalyizer.getBands("audio/in_o.wav", NUM_BANDS, freq1, amp1);
+		AudioAnalyizer.getBands("audio/in_i.wav", NUM_BANDS, freq2, amp2);
+		AudioSynthesizer.synthesizeLerp("audio/out_oi.wav", 1, 0.3, 1, NUM_BANDS, freq1, amp1, freq2, amp2);
 		
-		FFTAnalysis.getBands("in_i.wav", NUM_BANDS, freq, amp);
-		AudioSynthesizer.synthesize("out_i.wav", NUM_BANDS, freq, amp);
-		
-		FFTAnalysis.getBands("in_o.wav", NUM_BANDS, freq, amp);
-		AudioSynthesizer.synthesize("out_o.wav", NUM_BANDS, freq, amp);
-		
-		FFTAnalysis.getBands("in_u.wav", NUM_BANDS, freq, amp);
-		AudioSynthesizer.synthesize("out_u.wav", NUM_BANDS, freq, amp);
-		
+//		FFTAnalysis.getBands("audio/in_a.wav", NUM_BANDS, freq, amp);
+//		AudioSynthesizer.synthesize("audio/out_a.wav", NUM_BANDS, freq, amp);
+//		
+//		FFTAnalysis.getBands("audio/in_e.wav", NUM_BANDS, freq, amp);
+//		AudioSynthesizer.synthesize("audio/out_e.wav", NUM_BANDS, freq, amp);
+//		
+//		FFTAnalysis.getBands("audio/in_i.wav", NUM_BANDS, freq, amp);
+//		AudioSynthesizer.synthesize("audio/out_i.wav", NUM_BANDS, freq, amp);
+//		
+//		FFTAnalysis.getBands("audio/in_o.wav", NUM_BANDS, freq, amp);
+//		AudioSynthesizer.synthesize("audio/out_o.wav", NUM_BANDS, freq, amp);
+//		
+//		FFTAnalysis.getBands("audio/in_u.wav", NUM_BANDS, freq, amp);
+//		AudioSynthesizer.synthesize("audio/out_u.wav", NUM_BANDS, freq, amp);
 		
 	}
 
